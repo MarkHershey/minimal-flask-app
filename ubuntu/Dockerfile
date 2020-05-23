@@ -1,7 +1,8 @@
-FROM alpine:latest
+FROM ubuntu:focal
 
-RUN apk add --no-cache python3-dev \
-    && pip3 install --upgrade pip
+RUN apt update && \
+    apt install -y python3-pip && \
+    pip3 install --upgrade pip
 
 WORKDIR /app
 

@@ -5,12 +5,11 @@ app = Flask(__name__)
 logger = logging.getLogger("Admin")
 
 logging.basicConfig(
-    filename="app.log",
+    filename="logs/app.log",
     filemode="w",
     format="%(asctime)s - %(levelname)s - %(message)s",
     level=logging.DEBUG,
 )
-logging.warning("This will get logged to a file")
 
 
 @app.route("/", methods=["GET"])
