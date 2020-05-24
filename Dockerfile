@@ -1,16 +1,15 @@
-FROM alpine:latest
+FROM python:3-alpine
 
-RUN apk add --no-cache python3-dev \
-    && pip3 install --upgrade pip
+WORKDIR /usr/src/app
 
-WORKDIR /app
+COPY requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-
-RUN pip3 install -r requirements.txt
 
 EXPOSE 5000
 
 VOLUME ["/data"]
 
-CMD ["python3", "app.py"]
+CMD ["python", "app.py"]
